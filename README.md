@@ -25,6 +25,43 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
  * `mix ecto.migrate` - executa as migrations
  * `mix ecto.drop` - deleta o banco de dados do projeto
 
+ ## Aula 3
+ * `Rocketpay.Repo.all(Rocketpay.User)` - ver todos os registros de usuários no banco (rodar dentro do elixir interativo)
+ * `Repo.preload(:<foreign_key_field>)` - carrega as chaves estrangeiras dos registros buscados no banco
+ uso:
+ ```
+ > alias Rocketpay.Repo
+ > Repo.all(Rocketpay.User) |> Repo.preload(:account)
+
+
+ # output:
+
+%Rocketpay.User{
+    __meta__: #Ecto.Schema.Metadata<:loaded, "users">,
+    account: %Rocketpay.Account{
+      __meta__: #Ecto.Schema.Metadata<:loaded, "accounts">,
+      balance: #Decimal<0.00>,
+      id: "2e2293e9-dced-497e-888d-8a963c26d6af",
+      inserted_at: ~N[2021-02-24 23:25:10],
+      updated_at: ~N[2021-02-24 23:25:10],
+      user: #Ecto.Association.NotLoaded<association :user is not loaded>,
+      user_id: "34405083-b1e7-4ac0-a65d-877604dbd85d"
+    },
+    age: 27,
+    email: "duda@duda.com",
+    id: "34405083-b1e7-4ac0-a65d-877604dbd85d",
+    inserted_at: ~N[2021-02-24 23:08:43],
+    name: "duda",
+    nickname: "dudinha",
+    password: nil,
+    password_hash: "$2b$12$1IEC50fe7ymewdEbittaQehHcYXhKPy59w2ziMrqBh.s.26J0TvR6",
+    updated_at: ~N[2021-02-24 23:08:43]
+  }
+]
+
+ ```
+
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/
