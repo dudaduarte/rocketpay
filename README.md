@@ -27,8 +27,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
  ## Aula 3
  * `Rocketpay.Repo.all(Rocketpay.User)` - ver todos os registros de usuários no banco (rodar dentro do elixir interativo)
- * `Repo.preload(:<foreign_key_field>)` - carrega as chaves estrangeiras dos registros buscados no banco
- uso:
+ * `Repo.preload(:<foreign_key_field>)` - carrega as chaves estrangeiras dos registros buscados no banco. uso:
  ```
  > alias Rocketpay.Repo
  > Repo.all(Rocketpay.User) |> Repo.preload(:account)
